@@ -2,7 +2,7 @@
 Given the root of a binary tree, return the sum of values of its deepest
 leaves.
 """
-
+from collections import deque
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -32,4 +32,9 @@ class Solution:
         dfs(root, 0)
         return sum(deepest_nodes)
 
-
+    def deepest_leaves_sum(self, root: TreeNode):
+        q = [root]
+        while q:
+            pre, q = q, [child for p in q for child in [p.left, p.right] if
+                         child]
+        return sum(node.val for node in pre)
