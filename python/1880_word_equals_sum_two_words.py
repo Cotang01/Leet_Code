@@ -8,15 +8,16 @@ converted into an integer.
 """
 
 
-def is_sum_equal(first: str, second: str, target: str) -> bool:
-    first_value = int(''.join([str(ord(i) - ord('a')) for i in first]))
-    second_value = int(''.join([str(ord(i) - ord('a')) for i in second]))
-    target_value = int(''.join([str(ord(i) - ord('a')) for i in target]))
-    return first_value + second_value == target_value
+class Solution:
+    def is_sum_equal(self, first: str, second: str, target: str) -> bool:
+        first_value = int(''.join([str(ord(i) - ord('a')) for i in first]))
+        second_value = int(''.join([str(ord(i) - ord('a')) for i in second]))
+        target_value = int(''.join([str(ord(i) - ord('a')) for i in target]))
+        return first_value + second_value == target_value
 
-
-def is_sum_equal_2(firstWord: str, secondWord: str, targetWord: str) -> bool:
-    table = str.maketrans('abcdefghij', '0123456789')
-    return int(firstWord.translate(table)) + \
-           int(secondWord.translate(table)) == \
-           int(targetWord.translate(table))
+    def is_sum_equal_2(self, first: str, second: str, target: str)\
+            -> bool:
+        table = str.maketrans('abcdefghij', '0123456789')
+        return int(first.translate(table)) + \
+               int(second.translate(table)) == \
+               int(target.translate(table))

@@ -1,4 +1,4 @@
-'''
+"""
 Roman numerals are represented by seven different symbols: I, V, X, L, C,
 D and M.
 
@@ -24,48 +24,24 @@ I can be placed before V(5) and X(10) to make 4 and 9. X can be placed
 before L(50) and C(100) to make 40 and 90. C can be placed before D (500)
 and M (1000) to make 400 and 900.
 Given a roman numeral, convert it to an integer.
-
-Example
-1:
-
-Input: s = "III"
-Output: 3
-Explanation: III = 3.
-Example
-2:
-
-Input: s = "LVIII"
-Output: 58
-Explanation: L = 50, V = 5, III = 3.
-Example
-3:
-
-Input: s = "MCMXCIV"
-Output: 1994
-Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
-'''
+"""
 
 
-def roman_to_int(s: str) -> int:
-    romans = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000}
-    result = 0
-    for letter in s:
-        result += romans[letter]
-    return result
-
-
-s1 = "III"
-print(roman_to_int(s1))
-
-s2 = "LVIII"
-print(roman_to_int(s2))
-
-s3 = "MCMXCIV"
-print(roman_to_int(s3))
+class Solution:
+    def roman_to_int(self, s: str) -> int:
+        translations = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+        }
+        result = 0
+        s = s.replace("IV", "IIII").replace("IX", "VIIII")
+        s = s.replace("XL", "XXXX").replace("XC", "LXXXX")
+        s = s.replace("CD", "CCCC").replace("CM", "DCCCC")
+        for char in s:
+            result += translations[char]
+        return result

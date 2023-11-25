@@ -5,6 +5,7 @@ length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n
 """
 
 
-def get_concatenation(nums: list[int]) -> list[int]:
-    nums.extend(nums)
-    return nums
+class Solution:
+    def get_concatenation(self, nums: list[int]) -> list[int]:
+        nums.extend(nums)
+        return nums

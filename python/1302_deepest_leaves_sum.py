@@ -17,7 +17,7 @@ class Solution:
             return 0
         deepest_level = -1
         deepest_nodes = []
-        
+
         def dfs(node, level):
             nonlocal deepest_level, deepest_nodes
             if node is None:

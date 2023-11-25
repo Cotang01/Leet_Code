@@ -10,26 +10,27 @@ Every close bracket has a corresponding open bracket of the same type.
 """
 
 
-def is_valid(s: str) -> bool:
-    stack = []
-    for i in s:
-        if i == '(':
-            stack.append(')')
-        elif i == '[':
-            stack.append(']')
-        elif i == '{':
-            stack.append('}')
-        elif len(stack) == 0 or stack.pop() != i:
-            return False
-    return len(stack) == 0
+class Solution:
 
+    def is_valid(self, s: str) -> bool:
+        stack = []
+        for i in s:
+            if i == '(':
+                stack.append(')')
+            elif i == '[':
+                stack.append(']')
+            elif i == '{':
+                stack.append('}')
+            elif len(stack) == 0 or stack.pop() != i:
+                return False
+        return len(stack) == 0
 
-def is_valid_2(s: str) -> bool:
-    d = {'(': ')', '{': '}', '[': ']'}
-    stack = []
-    for i in s:
-        if i in d:
-            stack.append(i)
-        elif len(stack) == 0 or d[stack.pop()] != i:
-            return False
-    return len(stack) == 0
+    def is_valid_2(self, s: str) -> bool:
+        d = {'(': ')', '{': '}', '[': ']'}
+        stack = []
+        for i in s:
+            if i in d:
+                stack.append(i)
+            elif len(stack) == 0 or d[stack.pop()] != i:
+                return False
+        return len(stack) == 0

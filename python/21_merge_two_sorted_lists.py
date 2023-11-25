@@ -14,17 +14,19 @@ class ListNode:
         self.next = next
 
 
-def merge_two_lists(list1: ListNode, list2: ListNode) -> ListNode:
-    head = ListNode()
-    current = head
-    while list1 and list2:
-        if list1.val < list2.val:
-            current.next = list1
-            list1 = list1.next
-        else:
-            current.next = list2
-            list2 = list2.next
-        current = current.next
-    if list1 or list2:
-        current.next = list1 if list1 else list2
-    return head.next
+class Solution:
+
+    def merge_two_lists(self, head_1: ListNode, head_2: ListNode) -> ListNode:
+        head = ListNode()
+        current = head
+        while head_1 and head_2:
+            if head_1.val < head_2.val:
+                current.next = head_1
+                head_1 = head_1.next
+            else:
+                current.next = head_2
+                head_2 = head_2.next
+            current = current.next
+        if head_1 or head_2:
+            current.next = head_1 if head_1 else head_2
+        return head.next
