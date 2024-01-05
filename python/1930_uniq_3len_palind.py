@@ -17,10 +17,8 @@ class Solution:
     def countPalindromicSubsequence(self, s: str) -> int:
         letters = set(s)
         result = 0
-        print(letters)
         for letter in letters:
             i, j = s.index(letter), s.rindex(letter)
-            print(i, j)
             between = set()
             for k in range(i + 1, j):
                 between.add(s[k])
